@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container-slide{
+    width: 50vw;
+    height: 50vh;
+}

@@ -1,12 +1,12 @@
 'use strict';
 
 const images = [
-    { 'id': '1', 'url':'chrono.jpg'},
-    { 'id': '2', 'url':'inuyasha.jpg'},
-    { 'id': '3', 'url':'tenchi.jpg'},
-    { 'id': '4', 'url':'tenjhotenge.jpg'},
-    { 'id': '5', 'url':'yuyuhakusho.jpg'},
-    { 'id': '6', 'url':'ippo.png'},
+    { 'id': 'Chrono', 'url':'chrono.jpg'},
+    { 'id': 'Inuyasha', 'url':'inuyasha.jpg'},
+    { 'id': 'Tenchi', 'url':'tenchi.jpg'},
+    { 'id': 'Tenjhotenge', 'url':'tenjhotenge.jpg'},
+    { 'id': 'Yuyuhakusho', 'url':'yuyuhakusho.jpg'},
+    { 'id': 'Ippo', 'url':'ippo.png'},
 ]
 
 const containerItems = document.querySelector('#container-items');
@@ -14,7 +14,12 @@ const loadImages = (images, container) =>{
     images.forEach (image => {
         container.innerHTML += `
         <div class='item'>
-        <img src='${image.url}'
+        <img src='${image.url}'>
+
+        <div class='item-overlay'>
+            <h1>${image.id}</h1>
+        </div>
+        
         </div>
         `
     })
@@ -34,6 +39,12 @@ const next = () => {
     containerItems.insertBefore(lastItem, items[0])
     items = document.querySelectorAll('.item');
 }
+
+const auto = () => {
+    setInterval(previous, 3000);
+}
+
+auto()
 
 const btnNext = document.querySelector('#next').addEventListener('click', next);
 const btnPrevious = document.querySelector('#previous').addEventListener('click', previous);

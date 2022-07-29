@@ -18,7 +18,10 @@ const loadImages = (images, container) =>{
 
         <div class='item-overlay'>
             <h1>${image.id}</h1>
+            <p>teste</p>
         </div>
+
+
         
         </div>
         `

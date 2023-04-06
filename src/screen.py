@@ -57,7 +57,7 @@ class Screen:
         l, c = self.ConvertMatrixCoordinates(x, y)
         self.Matrix[l][c] = color
 
-    def Desenhar(self, object: list, color):
+    def Draw(self, object: list, color):
         for p in object:
             self.DrawPixel(p[0], p[1], color)
 

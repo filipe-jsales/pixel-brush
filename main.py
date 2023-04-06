@@ -1,8 +1,8 @@
 from tkinter import mainloop
 
-from src import (screen, bresenham)
+from src import (screen, bresenham, circle)
 
-# algumas cores
+# some colors
 blue = '#0080ff'
 red = '#ff0000'
 green = '#00ff40'
@@ -15,10 +15,11 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-
-#BRESENHAM 1
-line = bresenham.Bresenham((15, -3), (-15, -15))
-screen.Desenhar(line.output_points, blue)
+obj = circle.Circle({
+    "center": [0,0],
+    "radius": 10
+})
+screen.Desenhar(obj.output_points, blue)
 
 
 # break execution and show screen figure

@@ -1,6 +1,7 @@
 from tkinter import mainloop
 
-from src import (screen, bresenham, circle, scanline, polyline, transformation, recursive_filling, curves)
+from src import (screen, bresenham, circle, scanline, polyline,
+                 transformation, recursive_filling, curves, line_clipping)
 
 # some colors
 blue = '#0080ff'
@@ -16,7 +17,7 @@ screen = screen.Screen(600)
 # EXAMPLES HERE
 
 obj = circle.Circle({
-    "center": [0,0],
+    "center": [0, 0],
     "radius": 10
 })
 screen.Desenhar(obj.output_points, blue)

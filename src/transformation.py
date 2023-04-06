@@ -1,5 +1,5 @@
 from src.rasterization import Rasterization
-from src.polilinha import Polilinha
+from src.polyline import Polyline
 from math import sin, cos, radians
 import numpy as np
 

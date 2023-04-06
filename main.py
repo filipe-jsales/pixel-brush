@@ -1,7 +1,7 @@
 from tkinter import mainloop
 
 from src import (screen, bresenham, circle, scanline, polyline,
-                 transformation, recursive_filling, curves, line_clipping)
+                 transformation, recursive_filling, curves, line_clipping, polygon_truncation, projection)
 
 # some colors
 blue = '#0080ff'
@@ -16,11 +16,17 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-obj = circle.Circle({
-    "center": [0, 0],
-    "radius": 10
-})
-screen.Desenhar(obj.output_points, blue)
+cubo = [
+    [0, 0, 0], [4, 0, 0], [4, 4, 0], [0, 4, 0],
+    [0, 0, 4], [4, 0, 4], [4, 4, 4], [0, 4, 4]
+]
+
+object = projection.Projection(input_points=cubo, shift=-10)
+object.project()
+
+object.perspective(dist=-9)
+
+screen.Draw(object.output_points, blue)
 
 
 # break execution and show screen figure

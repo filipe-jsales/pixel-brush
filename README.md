@@ -21,8 +21,6 @@ line = bresenham.Bresenham((5, -2), (5, 10))
 screen.Draw(line.output_points, blue)
 ```
 
----
-
 ## POLYLINE
 
 ```
@@ -30,8 +28,6 @@ points = [(3, 4), (-7, 1), (2, -9)]
 lines = polilinha.Polyline(points)
 screen.Draw(lines.output_points, blue)
 ```
-
----
 
 ## CURVES 1
 
@@ -53,8 +49,6 @@ screen.Draw(c.output_points, blue)
 c = curves.Curves(10, [(-14, 20), (-20, 10), (0, 0), (-8, -10)])
 screen.Draw(c.output_points, blue)
 ```
-
----
 
 ## CIRCLE 1
 
@@ -88,8 +82,6 @@ object = circulo.Circle({
 screen.Draw(object.output_points, blue)
 ```
 
----
-
 ## RECURSIVE FILLING 1
 
 ```
@@ -113,9 +105,7 @@ screen.Draw(object.output_points, blue)
 pr = recursive_filling.RecursiveFilling((2,2), green, blue, screen)
 ```
 
----
-
-## ##  SCANLINE 1
+##  SCANLINE 1
 
 ```
 points = [(-4, 0), (8,-16), (20, 5)]
@@ -132,8 +122,6 @@ screen.Draw(object.output_points, blue)
 object = polilinha.Polyline(points, close=True)
 screen.Draw(object.output_points, red)
 ```
-
----
 
 ## LINE CLIPPING 1
 
@@ -175,10 +163,8 @@ ymax = 10
 object = line_clipping.LineClipping(p1, p2, xmin, xmax, ymin, ymax)
 screen.outlineWindow(xmin, xmax, ymin, ymax)
 
-screen.Draw(object.output_points, blue)```
-
------------------------
-
+screen.Draw(object.output_points, blue)
+```
 
 ## POLYGON TRUNCATION 1
 
@@ -193,15 +179,16 @@ object = recorte_poligono.PolygonTruncation(points, xmin, xmax, ymin, ymax)
 screen.outlineWindow(xmin, xmax, ymin, ymax)
 screen.Draw(object.output_points, blue)
 
-'''
-original_polygon = polilinha.Polyline(points, close=True)
-screen.Draw(original_polygon.output_points, blue)
-'''```
+#original_polygon = polilinha.Polyline(points, close=True)
+#screen.Draw(original_polygon.output_points, blue)
+
+```
 
 
 ## POLYGON TRUNCATION 2
 
-```points = [(-5,5),(-5, -5),(5, -5), (5, 5)]
+```
+points = [(-5,5),(-5, -5),(5, -5), (5, 5)]
 xmin = -1
 xmax = 10
 ymin = -9
@@ -211,16 +198,15 @@ object = recorte_poligono.PolygonTruncation(points, xmin, xmax, ymin, ymax)
 screen.outlineWindow(xmin, xmax, ymin, ymax)
 screen.Draw(object.output_points, blue)
 
-'''
-original_polygon = polilinha.Polyline(points, close=True)
-screen.Draw(original_polygon.output_points, blue)
-'''
+#original_polygon = polilinha.Polyline(points, close=True)
+#screen.Draw(original_polygon.output_points, blue)
 ```
------------------------
+
 
 ##  TRANSFORMATION 1
 
-```square = [
+```
+square = [
     [0,0], [1,0], [2,0], [3,0],
     [3,1], [3,2], [3,3], [2,3],
     [1,3], [0,3], [0,2], [0,1]
@@ -231,9 +217,8 @@ object.translate(5,5)
 object.scale(6, 6)
 object.rotate([3, 3], 90)
 
-screen.Draw(object.output_points, blue)```
-
-
+screen.Draw(object.output_points, blue)
+```
 
 ##  TRANSFORMATION 2
 

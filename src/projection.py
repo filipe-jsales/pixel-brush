@@ -27,7 +27,8 @@ class Projection(Rasterization):
 
         for point in self.input_points:
             projection = np.dot(matrix_projection, point)
-            self.output_points.append([projection[x_output], projection[y_output]])
+            self.output_points.append(
+                [projection[x_output], projection[y_output]])
 
         self.output_points = Polyline(
             self.output_points, close=True).output_points
@@ -49,7 +50,8 @@ class Projection(Rasterization):
         for point in self.input_points:
             projection = np.dot(matrix_perspective, point)
             projection = np.multiply(projection, 1/point[2])
-            self.output_points.append([round(projection[0]), round(projection[1])])
+            self.output_points.append(
+                [round(projection[0]), round(projection[1])])
 
         self.output_points = Polyline(
             self.output_points, close=True).output_points

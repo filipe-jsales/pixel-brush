@@ -1,8 +1,9 @@
 from tkinter import *
 
+
 class Screen:
     def __init__(self, screenSize):
-        ## initial parameters
+        # initial parameters
         self.screenSize = screenSize
         self.Matrix = []
         self.matrixSize = 50
@@ -14,14 +15,15 @@ class Screen:
                 line.append(0)
             self.Matrix.append(line)
 
-        ## criar o canvas utilizando o tkinter
+        # criar o canvas utilizando o tkinter
         self.master = Tk()
-        self.screen = Canvas(self.master, width=self.screenSize, height=self.screenSize)
+        self.screen = Canvas(
+            self.master, width=self.screenSize, height=self.screenSize)
         self.screen.pack()
 
         self.CreateTemplate()
 
-    ## função que cria a grade
+    # função que cria a grade
     def CreateTemplate(self):
         aux = int(self.screenSize / 2) + (self.pixelSize / 2)
 
@@ -32,11 +34,12 @@ class Screen:
             self.screen.create_line(0, y, self.screenSize, y, fill='#DCDCDC')
 
         self.screen.create_line(0, aux - self.pixelSize, self.screenSize, aux - self.pixelSize,
-                         fill="#f00")  # line central - horizontal
-        self.screen.create_line(aux, 0, aux, self.screenSize, fill="#f00")  # line central - vertical
+                                fill="#f00")  # line central - horizontal
+        # line central - vertical
+        self.screen.create_line(aux, 0, aux, self.screenSize, fill="#f00")
 
+    # convert to real coordinates
 
-    # convert to real coordinates 
     def ConvertCoordinates(self, x, y):
         real_x = int((self.pixelSize * x) + (self.screenSize / 2))
         real_y = int((self.screenSize / 2) - (self.pixelSize * y))
@@ -52,7 +55,8 @@ class Screen:
     # draw a pixel in the screen
     def DrawPixel(self, x, y, color):
         x1, y1 = self.ConvertCoordinates(x, y)
-        self.screen.create_rectangle(x1, y1, x1 + self.pixelSize, y1 - self.pixelSize, fill=color)
+        self.screen.create_rectangle(
+            x1, y1, x1 + self.pixelSize, y1 - self.pixelSize, fill=color)
 
         l, c = self.ConvertMatrixCoordinates(x, y)
         self.Matrix[l][c] = color

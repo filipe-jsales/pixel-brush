@@ -28,18 +28,18 @@ class Scanline(Rasterization):
             if polygon[i][1] > ymax:
                 ymax = polygon[i][1]
 
-            auxiliar_point = polygon[(i+1)%len(polygon)]
+            auxiliar_point = polygon[(i+1) % len(polygon)]
 
             if polygon[i][1] < auxiliar_point[1]:
                 c = CriticalPoint(i, dir=1, x_intersection=polygon[i][0],
-                                 inv_slope=(auxiliar_point[0] - polygon[i][0])/(auxiliar_point[1] - polygon[i][1]))
+                                  inv_slope=(auxiliar_point[0] - polygon[i][0])/(auxiliar_point[1] - polygon[i][1]))
                 critical_points.append(c)
 
             auxiliar_point = polygon[(i-1)]
 
             if polygon[i][1] < auxiliar_point[1]:
                 c = CriticalPoint(i, dir=-1, x_intersection=polygon[i][0],
-                                 inv_slope=(auxiliar_point[0] - polygon[i][0]) / (auxiliar_point[1] - polygon[i][1]))
+                                  inv_slope=(auxiliar_point[0] - polygon[i][0]) / (auxiliar_point[1] - polygon[i][1]))
                 critical_points.append(c)
 
         actives = []
@@ -54,7 +54,8 @@ class Scanline(Rasterization):
 
             for i in range(len(actives)-1, -1, -1):
                 c = actives[i]
-                p_max = polygon[(c.index + c.dir + len(polygon))%len(polygon)]
+                p_max = polygon[(c.index + c.dir + len(polygon)) %
+                                len(polygon)]
                 if p_max[1] == y:
                     actives.pop(i)
 
@@ -64,6 +65,4 @@ class Scanline(Rasterization):
                 xmin = round(actives[i].x_intersection)
                 xmax = round(actives[i+1].x_intersection)
                 for x in range(xmin, xmax):
-                    self.output_points.append([x,y])
-
-
+                    self.output_points.append([x, y])

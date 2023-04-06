@@ -16,15 +16,16 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-cubo = [
-    [0, 0, 0], [4, 0, 0], [4, 4, 0], [0, 4, 0],
-    [0, 0, 4], [4, 0, 4], [4, 4, 4], [0, 4, 4]
+square = [
+    [5, 5], [6, 5], [7, 5], [8, 5],
+    [8, 6], [8, 7], [8, 8], [7, 8],
+    [6, 8], [5, 8], [5, 7], [5, 6]
 ]
 
-object = projection.Projection(input_points=cubo, shift=-10)
-object.project()
-
-object.perspective(dist=-9)
+object = transformation.Transformation(input_points=square)
+#object.translate(5,5)
+#object.scale(1, 3)
+#object.rotate([5, 5], 45)
 
 screen.Draw(object.output_points, blue)
 

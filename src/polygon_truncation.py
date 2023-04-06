@@ -20,8 +20,6 @@ class PolygonTruncation(Rasterization):
         polygon = Polyline(new_polygon_vertices, close=True)
         self.output_points = polygon.output_points
 
-
-
     def sutherland_hodgman_left(self, pts):
         new_polygon = []
 
@@ -34,16 +32,18 @@ class PolygonTruncation(Rasterization):
 
             if x1 >= self.xmin:
                 if x2 >= self.xmin:
-                    # inside to inside 
+                    # inside to inside
                     new_polygon.append(list(p2))
                 else:
                     # inside to outside
-                    new_polygon.append([self.xmin, round(y1 + (y2 - y1) * (self.xmin - x1) / (x2 - x1))])
+                    new_polygon.append(
+                        [self.xmin, round(y1 + (y2 - y1) * (self.xmin - x1) / (x2 - x1))])
 
             else:
                 if x2 >= self.xmin:
-                    # outside to inside 
-                    new_polygon.append([self.xmin, round(y1 + (y2 - y1) * (self.xmin - x1) / (x2 - x1))])
+                    # outside to inside
+                    new_polygon.append(
+                        [self.xmin, round(y1 + (y2 - y1) * (self.xmin - x1) / (x2 - x1))])
                     new_polygon.append(p2)
         return new_polygon
 
@@ -59,20 +59,21 @@ class PolygonTruncation(Rasterization):
 
             if x1 <= self.xmax:
                 if x2 <= self.xmax:
-                    # inside to inside 
+                    # inside to inside
                     new_polygon.append(list(p2))
                 else:
-                    # inside to outside 
-                    new_polygon.append([self.xmax, round(y1 + (y2 - y1) * (self.xmax - x1) / (x2 - x1))])
+                    # inside to outside
+                    new_polygon.append(
+                        [self.xmax, round(y1 + (y2 - y1) * (self.xmax - x1) / (x2 - x1))])
 
             else:
                 if x2 <= self.xmax:
                     # outside to inside
-                    new_polygon.append([self.xmax, round(y1 + (y2 - y1) * (self.xmax - x1) / (x2 - x1))])
+                    new_polygon.append(
+                        [self.xmax, round(y1 + (y2 - y1) * (self.xmax - x1) / (x2 - x1))])
                     new_polygon.append(p2)
 
         return new_polygon
-
 
     def sutherland_hodgman_down(self, pts):
         new_polygon = []
@@ -86,16 +87,18 @@ class PolygonTruncation(Rasterization):
 
             if y1 >= self.ymin:
                 if y2 >= self.ymin:
-                    # inside to inside 
+                    # inside to inside
                     new_polygon.append(list(p2))
                 else:
-                    # inside to outside 
-                    new_polygon.append([round(x1 + (x2 - x1) * (self.ymin - y1) / (y2 - y1)), self.ymin])
+                    # inside to outside
+                    new_polygon.append(
+                        [round(x1 + (x2 - x1) * (self.ymin - y1) / (y2 - y1)), self.ymin])
 
             else:
                 if y2 >= self.ymin:
-                    # outside to inside 
-                    new_polygon.append([round(x1 + (x2 - x1) * (self.ymin - y1) / (y2 - y1)), self.ymin])
+                    # outside to inside
+                    new_polygon.append(
+                        [round(x1 + (x2 - x1) * (self.ymin - y1) / (y2 - y1)), self.ymin])
                     new_polygon.append(p2)
 
         return new_polygon
@@ -112,16 +115,18 @@ class PolygonTruncation(Rasterization):
 
             if y1 <= self.ymax:
                 if y2 <= self.ymax:
-                    # inside to inside 
+                    # inside to inside
                     new_polygon.append(list(p2))
                 else:
-                    # inside to outside 
-                    new_polygon.append([round(x1 + (x2 - x1) * (self.ymax - y1) / (y2 - y1)), self.ymax])
+                    # inside to outside
+                    new_polygon.append(
+                        [round(x1 + (x2 - x1) * (self.ymax - y1) / (y2 - y1)), self.ymax])
 
             else:
                 if y2 <= self.ymax:
                     # outisde to inside
-                    new_polygon.append([round(x1 + (x2 - x1) * (self.ymax - y1) / (y2 - y1)), self.ymax])
+                    new_polygon.append(
+                        [round(x1 + (x2 - x1) * (self.ymax - y1) / (y2 - y1)), self.ymax])
                     new_polygon.append(p2)
 
         return new_polygon

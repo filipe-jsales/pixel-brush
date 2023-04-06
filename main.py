@@ -1,6 +1,6 @@
 from tkinter import mainloop
 
-from src import (screen, bresenham, circle, scanline)
+from src import (screen, bresenham, circle, scanline, polyline, transformation)
 
 # some colors
 blue = '#0080ff'

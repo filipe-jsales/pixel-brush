@@ -24,7 +24,7 @@ class Transformation(Rasterization):
             self.output_points.append(point)
         self.output_points.append(self.output_points[0])
 
-        self.output_points = Polilinha(self.output_points).output_points
+        self.output_points = Polyline(self.output_points).output_points
 
     def rotate(self, pivot, angulo):
         self.output_points = []

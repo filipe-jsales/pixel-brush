@@ -2,44 +2,64 @@ from src.rasterization import Rasterization
 
 
 class Bresenham(Rasterization):
-    def __init__(self, point1, point2):
-        super().__init__([point1, point2])
 
-        self.x1 = point1[0]
-        self.y1 = point1[1]
+    """
+    An implementation of the Bresenham's line algorithm, which is used to draw a line between two points on a 2D grid.
 
-        self.x2 = point2[0]
-        self.y2 = point2[1]
+    Args:
+        start_point (tuple): The starting point of the line, given as a tuple of (x, y) coordinates.
+        end_point (tuple): The ending point of the line, given as a tuple of (x, y) coordinates.
+
+    Attributes:
+        x_start (int): The x-coordinate of the starting point.
+        y_start (int): The y-coordinate of the starting point.
+        x_end (int): The x-coordinate of the ending point.
+        y_end (int): The y-coordinate of the ending point.
+        points (list): A list of all the points on the line (including the start and end points).
+        x_axis_changed (bool): True if the line was reflected about the x-axis, False otherwise.
+        y_axis_changed (bool): True if the line was reflected about the y-axis, False otherwise.
+        xy_axes_changed (bool): True if the line was reflected about both the x-axis and y-axis, False otherwise.
+        output_points (list): The list of all the points on the line (same as `points`).
+    """
+
+    def __init__(self, start_point, end_point):
+        super().__init__([start_point, end_point])
+
+        self.x_start = start_point[0]
+        self.y_start = start_point[1]
+
+        self.x_end = end_point[0]
+        self.y_end = end_point[1]
 
         self.points = []
 
-        self.change_x = False
-        self.change_y = False
-        self.change_xy = False
+        self.x_axis_changed = False
+        self.y_axis_changed = False
+        self.xy_axes_changed = False
 
-        if point1 == point2:
-            self.output_points = [[self.x1, self.y1]]
+        if start_point == end_point:
+            self.output_points = [[self.x_start, self.y_start]]
             return
 
         self.check_octant()
 
-        x = self.x1
-        y = self.y1
+        x = self.x_start
+        y = self.y_start
 
-        delta_x = self.x2 - self.x1
-        delta_y = self.y2 - self.y1
+        delta_x = self.x_end - self.x_start
+        delta_y = self.y_end - self.y_start
 
-        m = delta_y/delta_x
-        e = m - (1/2)
+        slope = delta_y / delta_x
+        error = slope - (1/2)
 
         self.points.append([x, y])
 
-        while x < self.x2:
-            if e >= 0:
+        while x < self.x_end:
+            if error >= 0:
                 y += 1
-                e -= 1
+                error -= 1
             x += 1
-            e += m
+            error += slope
             self.points.append([x, y])
 
         self.reflection(self.points)
@@ -48,38 +68,42 @@ class Bresenham(Rasterization):
 
     def check_octant(self):
 
-        delta_x = self.x2 - self.x1
-        delta_y = self.y2 - self.y1
+        """
+        Helper method to check which octant the line is in and apply any necessary transformations to the start and end points.
+        """
+
+        delta_x = self.x_end - self.x_start
+        delta_y = self.y_end - self.y_start
 
         if delta_x != 0:
-            m = delta_y/delta_x
+            slope = delta_y / delta_x
         else:
-            m = 2
+            slope = 2
 
-        if m > 1 or m < -1:
-            [self.x1, self.y1] = [self.y1, self.x1]
-            [self.x2, self.y2] = [self.y2, self.x2]
-            self.change_xy = True
+        if slope > 1 or slope < -1:
+            [self.x_start, self.y_start] = [self.y_start, self.x_start]
+            [self.x_end, self.y_end] = [self.y_end, self.x_end]
+            self.xy_axes_changed = True
 
-        if self.x1 > self.x2:
-            self.x1 = -self.x1
-            self.x2 = -self.x2
-            self.change_x = True
+        if self.x_start > self.x_end:
+            self.x_start = -self.x_start
+            self.x_end = -self.x_end
+            self.x_axis_changed = True
 
-        if self.y1 > self.y2:
-            self.y1 = -self.y1
-            self.y2 = -self.y2
-            self.change_y = True
+        if self.y_start > self.y_end:
+            self.y_start = -self.y_start
+            self.y_end = -self.y_end
+            self.y_axis_changed = True
 
     def reflection(self, pts: list):
-        if self.change_y:
+        if self.y_axis_changed:
             for pt in self.points:
                 pt[1] = -pt[1]
 
-        if self.change_x:
+        if self.x_axis_changed:
             for pt in self.points:
                 pt[0] = -pt[0]
 
-        if self.change_xy:
+        if self.xy_axes_changed:
             for pt in self.points:
                 [pt[0], pt[1]] = [pt[1], pt[0]]

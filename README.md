@@ -237,8 +237,6 @@ object = transformation.Transformation(input_points=square)
 screen.Draw(object.output_points, blue)
 ```
 
------------------------
-
 ##  PROJECTION
 
 ```

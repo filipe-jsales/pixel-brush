@@ -19,7 +19,7 @@ class Circle(Rasterization):
 
         # draw in the second octant to others octants
         while x <= y:
-            # adjuost the x error and increment to the right 
+            # adjuost the x error and increment to the right
             e = self.e_prox(x, y, e)
             x += 1
 
@@ -28,7 +28,6 @@ class Circle(Rasterization):
                 e = self.e_fin(x, y, e)
                 y -= 1
 
-            # replica nos 8 octantes, com desvio de center
             self.draw_octants(x, y)
 
     def e_prox(self, x, y, e):
@@ -46,7 +45,3 @@ class Circle(Rasterization):
         self.output_points.append([-y + self.center[0], -x + self.center[1]])
         self.output_points.append([-y + self.center[0], x + self.center[1]])
         self.output_points.append([-x + self.center[0], y + self.center[1]])
-
-
-
-

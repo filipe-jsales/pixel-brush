@@ -39,11 +39,13 @@ class Transformation(Rasterization):
         radian_angle = radians(angulo)
 
         # montar a matriz de rotação
-        rotation_matrix = [[cos(radian_angle), -sin(radian_angle)], [sin(radian_angle), cos(radian_angle)]]
+        rotation_matrix = [
+            [cos(radian_angle), -sin(radian_angle)], [sin(radian_angle), cos(radian_angle)]]
 
         # multiplicação de matrizes entre a rotação e cada column da input_points
         for point in self.input_points:
-            self.output_points.append([round(x) for x in np.dot(rotation_matrix, point)])
+            self.output_points.append([round(x)
+                                      for x in np.dot(rotation_matrix, point)])
 
         # translate object back
         translation = Transformation(self.output_points)

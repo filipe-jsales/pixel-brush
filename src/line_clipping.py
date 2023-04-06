@@ -69,7 +69,6 @@ class LineClipping(Rasterization):
                     p2[1] = y
                     c2 = self.binary(p2)
 
-
     def binary(self, point):
         x = point[0]
         y = point[1]

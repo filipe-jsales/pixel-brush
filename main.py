@@ -16,18 +16,8 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-square = [
-    [5, 5], [6, 5], [7, 5], [8, 5],
-    [8, 6], [8, 7], [8, 8], [7, 8],
-    [6, 8], [5, 8], [5, 7], [5, 6]
-]
-
-object = transformation.Transformation(input_points=square)
-#object.translate(5,5)
-#object.scale(1, 3)
-#object.rotate([5, 5], 45)
-
-screen.Draw(object.output_points, blue)
+line = bresenham.Bresenham((15, -3), (-15, -15))
+screen.Draw(line.output_points, blue)
 
 
 # break execution and show screen figure

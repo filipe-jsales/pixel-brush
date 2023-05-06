@@ -25,7 +25,7 @@ screen.Draw(line.output_points, blue)
 
 ```
 points = [(3, 4), (-7, 1), (2, -9)]
-lines = polilinha.Polyline(points)
+lines = polyline.Polyline(points)
 screen.Draw(lines.output_points, blue)
 ```
 
@@ -82,27 +82,27 @@ object = circulo.Circle({
 screen.Draw(object.output_points, blue)
 ```
 
-## RECURSIVE FILLING 1
+## FLOOD FILLING 1
 
 ```
 points = [(3, 4), (-7, 1), (2, -9)]
 
-object = polilinha.Polyline(points, close=True)
+object = polyline.Polyline(points, close=True)
 screen.Draw(object.output_points, blue)
 
-pr = recursive_filling.RecursiveFilling((0,0), green, blue, screen)
+pr = flood_fill.FloodFill((0,0), green, blue, screen)
 
 ```
 
-## RECURSIVE FILLING 2
+## FLOOD FILL 2
 
 ```
 points = [(3, 4), (3, -2), (-5, -2), (-5, 4)]
 
-object = polilinha.Polyline(points, close=True)
+object = polyline.Polyline(points, close=True)
 screen.Draw(object.output_points, blue)
 
-pr = recursive_filling.RecursiveFilling((2,2), green, blue, screen)
+pr = flood_fill.FloodFill((2,2), green, blue, screen)
 ```
 
 ##  SCANLINE 1
@@ -110,16 +110,16 @@ pr = recursive_filling.RecursiveFilling((2,2), green, blue, screen)
 ```
 points = [(-4, 0), (8,-16), (20, 5)]
 
-object = varredura.Scanline(points)
+object = scanline.Scanline(points)
 screen.Draw(object.output_points, blue)
 
 ## SCANLINE 2
 points = [(-6,-6), (8,-4), (8,12), (0,8), (-8,14)]
 
-object = varredura.Scanline(points)
+object = scanline.Scanline(points)
 screen.Draw(object.output_points, blue)
 
-object = polilinha.Polyline(points, close=True)
+object = polyline.Polyline(points, close=True)
 screen.Draw(object.output_points, red)
 ```
 
@@ -175,11 +175,11 @@ xmax = 10
 ymin = -9
 ymax = 9
 
-object = recorte_poligono.PolygonTruncation(points, xmin, xmax, ymin, ymax)
+object = polygon_truncation.PolygonTruncation(points, xmin, xmax, ymin, ymax)
 screen.outlineWindow(xmin, xmax, ymin, ymax)
 screen.Draw(object.output_points, blue)
 
-#original_polygon = polilinha.Polyline(points, close=True)
+#original_polygon = polyline.Polyline(points, close=True)
 #screen.Draw(original_polygon.output_points, blue)
 
 ```
@@ -194,11 +194,11 @@ xmax = 10
 ymin = -9
 ymax = 9
 
-object = recorte_poligono.PolygonTruncation(points, xmin, xmax, ymin, ymax)
+object = polygon_truncation.PolygonTruncation(points, xmin, xmax, ymin, ymax)
 screen.outlineWindow(xmin, xmax, ymin, ymax)
 screen.Draw(object.output_points, blue)
 
-#original_polygon = polilinha.Polyline(points, close=True)
+#original_polygon = polyline.Polyline(points, close=True)
 #screen.Draw(original_polygon.output_points, blue)
 ```
 

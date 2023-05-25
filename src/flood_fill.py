@@ -1,11 +1,11 @@
 from src.rasterization import Rasterization
 from src.screen import Screen
 
-class RecursiveFilling(Rasterization):
+class FloodFill(Rasterization):
     """
     A class representing a Recursive Filling algorithm for filling an area with a color.
 
-    The RecursiveFilling class extends the Rasterization class and provides a recursive algorithm for filling an area
+    The FloodFill class extends the Rasterization class and provides a recursive algorithm for filling an area
     with a specified color. It utilizes the Screen class for drawing and checking pixels.
 
     Attributes:
@@ -17,7 +17,7 @@ class RecursiveFilling(Rasterization):
 
     def __init__(self, point, color, edge_color, screen: Screen):
         """
-        Initializes a RecursiveFilling object with the given parameters.
+        Initializes a FloodFill object with the given parameters.
 
         Args:
             point (tuple): The starting point for the filling operation.
@@ -29,7 +29,6 @@ class RecursiveFilling(Rasterization):
         self.screen = screen
         self.color = color
         self.edge_color = edge_color
-
         self.recursion(point)
 
     def recursion(self, point):
@@ -42,15 +41,18 @@ class RecursiveFilling(Rasterization):
         Args:
             point (tuple): The current point to process.
         """
-        current_point = point
-        current_color = self.screen.checkMatrix(
-            current_point[0], current_point[1])
+        x, y = point
+        current_color = self.screen.checkMatrix(x, y)
 
         if current_color != self.color and current_color != self.edge_color:
-            self.screen.DrawPixel(
-                current_point[0], current_point[1], self.color)
+            self.screen.DrawPixel(x, y, self.color)
 
-            self.recursion((current_point[0] + 1, current_point[1]))
-            self.recursion((current_point[0], current_point[1] + 1))
-            self.recursion((current_point[0] - 1, current_point[1]))
-            self.recursion((current_point[0], current_point[1] - 1))
+            neighbors = [
+                (x + 1, y),
+                (x, y + 1),
+                (x - 1, y),
+                (x, y - 1)
+            ]
+
+            for neighbor in neighbors:
+                self.recursion(neighbor)

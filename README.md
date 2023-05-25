@@ -1,4 +1,11 @@
-# Commands to execute in main
+# Install dependencies:
+
+In terminal, run the following command:
+```
+pip install numpy
+```
+
+## Commands to execute in main
 
 ## BRESENHAM 1
 

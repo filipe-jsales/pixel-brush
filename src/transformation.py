@@ -6,6 +6,13 @@ import numpy as np
 
 class Transformation(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing transformations applied to a set of points.
 
     The Transformation class extends the Rasterization class and provides methods for translating, scaling, and rotating

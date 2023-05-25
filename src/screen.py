@@ -3,6 +3,13 @@ from tkinter import *
 
 class Screen:
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing the screen for drawing and visualization.
 
     The Screen class provides functionality for creating and managing a graphical screen using the tkinter library.

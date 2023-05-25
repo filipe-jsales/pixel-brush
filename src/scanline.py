@@ -4,6 +4,13 @@ import sys
 
 class CriticalPoint:
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing a critical point used in the Scanline algorithm.
 
     The CriticalPoint class stores information about a critical point, including its index, direction, x-coordinate

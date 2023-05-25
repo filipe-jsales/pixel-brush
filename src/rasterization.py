@@ -1,5 +1,12 @@
 class Rasterization:
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing a Rasterization, which converts input points into a rasterized representation.
 
     The Rasterization class provides a base class for performing rasterization operations on a set of input points.

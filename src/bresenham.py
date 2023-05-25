@@ -4,6 +4,13 @@ from src.rasterization import Rasterization
 class Bresenham(Rasterization):
 
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JV
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+
     An implementation of the Bresenham's line algorithm, which is used to draw a line between two points on a 2D grid.
 
     Args:

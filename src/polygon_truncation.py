@@ -3,6 +3,13 @@ from src.polyline import *
 
 class PolygonTruncation(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+
     A class that performs polygon truncation using the Sutherland-Hodgman algorithm.
 
     This class inherits from the Rasterization class.

@@ -5,7 +5,7 @@ class Bresenham(Rasterization):
 
     """
     @Author: Filipe Eduardo Junqueira Sales
-    @Author: JV
+    @Author: JD
     @Github: https://github.com/filipe-jsales
     @Date: 2022-04-01
     @Version: 0.0.1

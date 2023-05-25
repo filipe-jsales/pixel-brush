@@ -4,6 +4,13 @@ from src.bresenham import Bresenham
 
 class Polyline(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+
     A class representing a Polyline, which is a series of connected line segments.
 
     This class inherits from the Rasterization class and provides methods to generate the set of points that approximate

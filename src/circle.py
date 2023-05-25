@@ -2,6 +2,12 @@ from src.rasterization import Rasterization
 
 class Circle(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
     A class that represents a circle and performs rasterization to draw the circle.
 
     This class inherits from the Rasterization class.

@@ -6,6 +6,13 @@ import numpy as np
 
 class Projection(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing a Projection, which performs various projection operations on a set of input points.
 
     This class inherits from the Rasterization class and provides methods for projection and perspective transformation

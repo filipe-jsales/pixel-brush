@@ -3,6 +3,13 @@ from src.screen import Screen
 
 class FloodFill(Rasterization):
     """
+    @Author: Filipe Eduardo Junqueira Sales
+    @Author: JD
+    @Github: https://github.com/filipe-jsales
+    @Date: 2022-04-01
+    @Version: 0.0.1
+    @LinkedIn: https://www.linkedin.com/in/filipe-sales/
+    
     A class representing a Recursive Filling algorithm for filling an area with a color.
 
     The FloodFill class extends the Rasterization class and provides a recursive algorithm for filling an area

@@ -16,12 +16,15 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-points = [(3, 4), (3, -2), (-5, -2), (-5, 4)]
+p1, p2 = (-7,9),(1, 1)
+xmin = -10
+xmax = 2
+ymin = -5
+ymax = 10
+object = line_clipping.LineClipping(p1, p2, xmin, xmax, ymin, ymax)
+screen.outlineWindow(xmin, xmax, ymin, ymax)
 
-object = polyline.Polyline(points, close=True)
 screen.Draw(object.output_points, blue)
-
-pr = flood_fill.FloodFill((2,2), green, blue, screen)
 
 
 # break execution and show screen figure

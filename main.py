@@ -16,16 +16,8 @@ screen = screen.Screen(600)
 
 # EXAMPLES HERE
 
-p1, p2 = (-7,9),(1, 1)
-xmin = -10
-xmax = 2
-ymin = -5
-ymax = 10
-object = line_clipping.LineClipping(p1, p2, xmin, xmax, ymin, ymax)
-screen.outlineWindow(xmin, xmax, ymin, ymax)
+#BRESENHAM
+# line = bresenham.Bresenham((16, -4), (-10, -10))
+# screen.Draw(line.output_points, purple)
 
-screen.Draw(object.output_points, blue)
-
-
-# break execution and show screen figure
 mainloop()

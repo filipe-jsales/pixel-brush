@@ -1,9 +1,9 @@
 class Rasterization:
     """
     @Author: Filipe Eduardo Junqueira Sales
-    @Author: JD
+    @Author: João Davi Costa Lima
     @Github: https://github.com/filipe-jsales
-    @Date: 2022-04-01
+    @Date: 2023-05-24
     @Version: 0.0.1
     @LinkedIn: https://www.linkedin.com/in/filipe-sales/
     
